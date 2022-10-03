@@ -1,0 +1,1 @@
+export const typedata ="TYPE"

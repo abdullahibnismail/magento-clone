@@ -1,3 +1,6 @@
+import {typedata} from '../action/Action'
+
+
 interface initial
 {
     
