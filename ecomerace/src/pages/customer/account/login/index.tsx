@@ -1,5 +1,5 @@
-import React from 'react'
-import Button from '../../../../components/Button'
+
+import {useDispatch} from 'react-redux'
 
 import {
   Field,
@@ -14,6 +14,7 @@ import {
 } from "formik";
 
 export default function Login() {
+  const dispatch= useDispatch()
   const styles =
     "h-10 mt-1 mr-12 w-full pl-4 font-bold text-base rounded-md  border-[#dfe3fa] border-solid border-2 hover:border-[#7C5DFA] focus:outline-none focus:border-[#7C5DFA]";
   return (
@@ -25,11 +26,14 @@ export default function Login() {
       <hr className='w-full'/>
       <Formik
             enableReinitialize
-            initialValues={{ Email: "", password: ""}}
+            initialValues={{ email: "", password: ""}}
             // validationSchema={SinupValdation}
             onSubmit={(values, actions) => {
         
-              
+              console.log(values)
+
+
+              dispatch({type:"SIGN_IN",payload:{email:values.email,password:values.password}})
               
             }}
           >
@@ -39,10 +43,10 @@ export default function Login() {
                   <div>
                     <p className="text-[#333] py-3">Email</p>
 
-                    <Field name="Email" className={styles} />
+                    <Field name="email" className={styles} />
                   
                     <ErrorMessage
-                      name="Email"
+                      name="email"
                       component="div"
                       className="text-red-600"
                     />

@@ -1,4 +1,5 @@
 import bglogin from '../../../public/images/login.webp'
+import { useDispatch } from 'react-redux';
 
 import {
   Field,
@@ -20,18 +21,8 @@ import {
 const Login = () => {
  
 
+  const dispatch=useDispatch();
 
-  function generate() {
-    let length = 3;
-    const number = "1234567890";
-    let result = " ";
-    const numberLenght = number.length;
-    for (let i = 0; i < length; i++) {
-      result += number.charAt(Math.floor(Math.random() * numberLenght));
-    }
-    return parseInt(result);
-  }
-  const RandomNumber = generate();
 //   const styling = {
 //     backgroundImage: "url('../../../public/images/login.webp')",
 //     width:"100%",
@@ -54,11 +45,13 @@ const Login = () => {
           </h1>
           <Formik
             enableReinitialize
-            initialValues={{ username: "", password: "", id: RandomNumber }}
+            initialValues={{ username: "", password: ""}}
             // validationSchema={SinupValdation}
             onSubmit={(values, actions) => {
-        
+
               
+        
+            
               
             }}
           >

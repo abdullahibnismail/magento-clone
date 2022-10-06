@@ -1,18 +1,16 @@
-import {typedata} from '../action/Action'
+import {login} from '../action/Action'
 
-
-interface initial
-{
-    
+export type InitialProps={
+    email:string
+    password:string
 }
-const initialState:initial= {
-   
-    
-    
-        
+
+const initialState:InitialProps= {
+        email:'',
+        password:''
   }
   
-  const rootReducer = (state:initial = initialState, action:any) => {
+  const rootReducer = (state:InitialProps = initialState, action:any) => {
     switch(action.type){
    
         case "VIEW_COMMENT":
@@ -22,6 +20,14 @@ const initialState:initial= {
                 commentView:action.payload.commentView
             
             }
+            case login:
+                return {
+                    ...state,
+    
+                    email:action.payload.email,
+                    password:action.payload.password
+                
+                }   
              
         default:
             return state
