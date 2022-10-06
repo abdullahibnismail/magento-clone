@@ -3,7 +3,7 @@ const HomeRoutes=require('./routes/HomeRoutes')
 const UserRoutes=require('./routes/UserRoutes')
 const app=express();
 app.use(express.json());
-require('../back-hand/configration/connection/connection')
+require('./configration/connection/connection')
 
 app.use('/',HomeRoutes)
 app.use('/user',UserRoutes)
